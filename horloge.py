@@ -1,26 +1,30 @@
 import time
 import keyboard
 
+# Initialisation des variables dans un dictionnaire pour pouvoir les utiliser n'importe où dans le code
+temps = {
+  "secondes": 0,
+  "minutes": 0,
+  "heures": 0
+}
+
+
 def horloge():
-  # Initialisation des variables
-  secondes = 0
-  minutes = 0
-  heures = 0
-
   while True: # S"éxecute tout le temps
+    delai = avance_rapide()
     for i in range(10):
-      time.sleep(0.1) # Intervalle d'une seconde découpée en 10 pour détecter correctement la touche ESPACE
-    secondes += 1
-    if secondes == 60: # Passage à 1 minute
-      secondes = 0
-      minutes += 1
-    if minutes == 60: # Passage à 1 heure
-      minutes = 0
-      heures += 1
-    if heures == 24: # Passage à 1 journée
-      heures = 0
+      time.sleep(delai) # Intervalle d'une seconde découpée en 10 pour détecter correctement la touche ESPACE
+    temps["secondes"] += 1
+    if temps["secondes"] >= 60: # Passage à 1 minute
+      temps["secondes"] = 0
+      temps["minutes"] += 1
+    if temps["minutes"] >= 60: # Passage à 1 heure
+      temps["minutes"] = 0
+      temps["heures"] += 1
+    if temps["heures"] >= 24: # Passage à 1 journée
+      temps["heures"] = 0
 
-    print(f"{heures:02d}:{minutes:02d}:{secondes:02d}") # Affichage comme une horloge
+    print(f"{temps["heures"]:02d}:{temps["minutes"]:02d}:{temps["secondes"]:02d}") # Affichage comme une horloge
 
     pause()
 
@@ -34,5 +38,11 @@ def pause():
 
     print("REPRISE")
     time.sleep(0.3)
+
+def avance_rapide():
+  if keyboard.is_pressed("m"):
+    return 0.01
+  return 0.1
+
 
 horloge()

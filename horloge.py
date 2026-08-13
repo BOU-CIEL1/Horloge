@@ -29,7 +29,7 @@ def horloge():
     pause()
 
     
-def pause():
+def pause(): # Met l'horloge en pause quand la touche ESPACE est pressée
   if keyboard.is_pressed("space"):
     print("PAUSE")
     time.sleep(1)
@@ -39,7 +39,7 @@ def pause():
     print("REPRISE")
     time.sleep(0.3)
 
-def avance_rapide():
+def avance_rapide(): # Fait s'écouler le temps plus rapidement quand la touche M est enfoncée
   if keyboard.is_pressed("m"):
     return 0.01
   return 0.1

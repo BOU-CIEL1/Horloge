@@ -1,35 +1,38 @@
 import time
+import keyboard
 
 def horloge():
+  # Initialisation des variables
   secondes = 0
   minutes = 0
   heures = 0
 
-  while True:
-    time.sleep(1)
+  while True: # S"éxecute tout le temps
+    for i in range(10):
+      time.sleep(0.1) # Intervalle d'une seconde découpée en 10 pour détecter correctement la touche ESPACE
     secondes += 1
-    if secondes == 60:
+    if secondes == 60: # Passage à 1 minute
       secondes = 0
       minutes += 1
-    if minutes == 60:
+    if minutes == 60: # Passage à 1 heure
       minutes = 0
       heures += 1
-    if heures == 24:
+    if heures == 24: # Passage à 1 journée
       heures = 0
 
-    if secondes < 10:
-      printSecondes = (f"0{secondes}")
-    else:
-      printSecondes = secondes
-    if minutes < 10:
-      printMinutes = (f"0{minutes}")
-    else:
-      printMinutes = minutes
-    if heures < 10:
-      printHeures = (f"0{heures}")
-    else:
-      printHeures = heures
+    print(f"{heures:02d}:{minutes:02d}:{secondes:02d}") # Affichage comme une horloge
 
-    print(f"{printHeures}:{printMinutes}:{printSecondes}")
+    pause()
+
+    
+def pause():
+  if keyboard.is_pressed("space"):
+    print("PAUSE")
+    time.sleep(1)
+
+    keyboard.wait("space")
+
+    print("REPRISE")
+    time.sleep(0.3)
 
 horloge()

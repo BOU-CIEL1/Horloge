@@ -1,6 +1,6 @@
 # Horloge Python
 
-![Static Badge](https://img.shields.io/badge/En%20cours%20-%20orange?label=Status) ![GitHub top language](https://img.shields.io/github/languages/top/BOU-CIEL1/Horloge) ![GitHub Tag](https://img.shields.io/github/v/tag/BOU-CIEL1/Horloge?label=version)
+![Static Badge](https://img.shields.io/badge/En%20cours%20-%20orange?label=Status) ![GitHub top language](https://img.shields.io/github/languages/top/BOU-CIEL1/Horloge) ![GitHub Tag](https://img.shields.io/github/v/tag/BOU-CIEL1/Horloge?style=flat&label=version)
 
 ## Description
 Une horloge développée en Python.
